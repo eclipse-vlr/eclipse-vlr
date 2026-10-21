@@ -1,16 +1,35 @@
-## Hi there 👋
+# Привет! Я eclipse 👋
 
-<!--
-**eclipse-vlr/eclipse-vlr** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Изучаю Go и развиваюсь в backend-разработке. Мне интересно создавать сервисы, которые не только работают в идеальных условиях, но и нормально ведут себя при ошибках и сбоях.
 
-Here are some ideas to get you started:
+Сейчас собираю портфолио, пишу тесты и разбираюсь в архитектуре серверных приложений.
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## С чем работаю
+
+- **Язык:** Go
+- **Backend:** REST API, `net/http`, SQL
+- **Базы данных и кеш:** PostgreSQL, Redis
+- **Инструменты:** Docker, Docker Compose, Git, GitHub Actions
+- **Тестирование:** `testing`, `httptest`, интеграционные тесты
+
+## Мои проекты
+
+### 🔗 [LinkForge](https://github.com/eclipse-vlr/linkforge)
+
+Сервис коротких ссылок на Go. В нём есть PostgreSQL, Redis-кеш, статистика переходов, миграции, ограничение частоты запросов, тесты и CI.
+
+### 🖥️ [PC Club Admin](https://github.com/eclipse-vlr/pc-club-admin)
+
+Система для учёта и передачи смен в компьютерном клубе: чек-листы, роли сотрудников, сверка кассы и история действий. Сейчас это тестовая версия, не предназначенная для реального учёта денег.
+
+### 🧩 [Алгоритмы на Go](https://github.com/eclipse-vlr/leetcode-go)
+
+Решаю задачи с LeetCode, разбираю подходы и пишу тесты. Так закрепляю структуры данных и алгоритмы, которые пригодятся в backend-разработке.
+
+## Что изучаю сейчас
+
+Go, конкурентность, проектирование backend-сервисов, SQL и алгоритмы.
+
+## Связаться со мной
+
+Открыт к предложениям на позиции Junior Go Backend Developer. Контакты добавлю здесь.
