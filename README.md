@@ -11,13 +11,17 @@
 - **Базы данных и кеш:** PostgreSQL, Redis
 - **Разработка под Windows:** Win32 API, GDI, WIC
 - **Инструменты:** Docker, Docker Compose, Git, GitHub Actions, CMake, MSVC
-- **Тестирование:** Go `testing` и `httptest`, интеграционные тесты, CTest
+- **Тестирование:** Go `testing` и `httptest`, интеграционные тесты, проверка гонок, CTest
 
 ## Мои проекты
 
 ### 🔗 [LinkForge](https://github.com/eclipse-vlr/linkforge)
 
-Сервис сокращения ссылок на Go. Создаёт короткие ссылки, перенаправляет по ним и считает переходы. Использую PostgreSQL, Redis, SQL-миграции, ограничение частоты запросов, тесты и CI.
+Сервис сокращения ссылок на Go. Создаёт короткие ссылки, перенаправляет по ним и считает переходы. В проекте использую PostgreSQL, кеш Redis, SQL-миграции, ограничение запросов и защиту создания ссылок через API-ключ.
+
+Проверяю работу с настоящими PostgreSQL и Redis, отказ кеша и корректную остановку сервера. В CI есть тесты с проверкой гонок, поиск уязвимостей зависимостей и проверка Docker-образа. Через GitHub Actions готовлю сборки для Linux, Windows и macOS.
+
+[Документация API](https://github.com/eclipse-vlr/linkforge/blob/master/docs/api.md) · [Сборка и тесты](https://github.com/eclipse-vlr/linkforge/actions/workflows/go.yml)
 
 ### 🖥️ [PC Club Admin](https://github.com/eclipse-vlr/pc-club-admin)
 
@@ -25,7 +29,7 @@
 
 ### 🎯 [TriggerLab](https://github.com/eclipse-vlr/TriggerLab)
 
-Приложение для тренировок в Kovaak’s и Aimlabs. Определяет выбранный цвет возле прицела и автоматически реагирует на совпадение.
+Приложение на C++20 для тренировок в Kovaak’s и Aimlabs под Windows. Находит выбранный цвет возле прицела и выполняет клик. Ядро анализа отделено от Windows-интерфейса; сборка и тесты запускаются в GitHub Actions.
 
 ### 🧩 [Алгоритмы на Go](https://github.com/eclipse-vlr/leetcode-go)
 
