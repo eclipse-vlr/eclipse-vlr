@@ -8,6 +8,7 @@
 
 - **Языки:** Go, C++
 - **Backend:** REST API, `net/http`, SQL
+- **LLM:** Yandex AI Studio, Responses API, JSON Schema
 - **Базы данных и кеш:** PostgreSQL, Redis
 - **Разработка под Windows:** Win32 API, GDI, WIC
 - **Инструменты:** Docker, Docker Compose, Git, GitHub Actions, CMake, MSVC
@@ -22,6 +23,14 @@
 Проверяю работу с настоящими PostgreSQL и Redis, отказ кеша и корректную остановку сервера. В CI есть тесты с проверкой гонок, поиск уязвимостей зависимостей и проверка Docker-образа. Через GitHub Actions готовлю сборки для Linux, Windows и macOS.
 
 [Документация API](https://github.com/eclipse-vlr/linkforge/blob/master/docs/api.md) · [Сборка и тесты](https://github.com/eclipse-vlr/linkforge/actions/workflows/go.yml)
+
+### 📨 [SupportFlow](https://github.com/eclipse-vlr/SupportFlow)
+
+Локальное рабочее место поддержки на Go с Алисой AI. Модель определяет категорию и приоритет обращения, готовит краткое описание и черновик ответа. Оператор может поправить текст, подтвердить его и скопировать для отправки клиенту.
+
+Интеграция с Yandex AI Studio через Responses API и JSON Schema. Очередь хранится в PostgreSQL: есть фоновые обработчики, повторные попытки, история правок и защита от перезаписи из старой вкладки. Проверяю работу с настоящей БД и тестами с `-race`; результаты отдельной проверки модели сохраняю в JSON-отчётах.
+
+[Как запустить](https://github.com/eclipse-vlr/SupportFlow#запуск) · [Проверка модели](https://github.com/eclipse-vlr/SupportFlow/blob/master/docs/evaluation.md)
 
 ### 🖥️ [PC Club Admin](https://github.com/eclipse-vlr/pc-club-admin)
 
