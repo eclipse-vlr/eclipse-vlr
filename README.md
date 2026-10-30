@@ -63,10 +63,6 @@ Backend на Go для вопросов по документам. Загруж�
 
 [Релиз v0.4.5](https://github.com/eclipse-vlr/TriggerLab/releases/tag/v0.4.5) · [Сборка и тесты](https://github.com/eclipse-vlr/TriggerLab/actions/workflows/ci.yml)
 
-### 🧩 [Алгоритмы на Go](https://github.com/eclipse-vlr/leetcode-go)
-
-Решаю задачи с LeetCode, разбираю разные подходы и пишу тесты. Так лучше понимаю структуры данных и алгоритмы, которые пригодятся в backend-разработке.
-
 ## Что изучаю сейчас
 
 Конкурентность в Go, архитектуру backend-сервисов, SQL и алгоритмы. Стараюсь закреплять теорию кодом, а не только читать о ней.
