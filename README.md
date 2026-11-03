@@ -25,6 +25,7 @@ Redis кеширует URL; при его отказе сервис обраща
 Передача смен между сотрудниками компьютерного клуба: роли, чек-листы, замечания, тестовая сверка кассы и журнал действий.
 Приём проверяет версию передачи, пересчёт и личный PIN; ответственность меняется в транзакции PostgreSQL.
 Есть локальная демонстрация на вымышленных данных; реальный денежный учёт требует проверки правил и пилота.
+Систему проверили администратор (приём смены) и управляющий (наблюдение из личного кабинета).
 [Видео · 1:27](https://github.com/eclipse-vlr/pc-club-admin/blob/main/assets/demo/walkthrough.webm) · [Сценарий и скриншоты](https://github.com/eclipse-vlr/pc-club-admin/blob/main/docs/demo.md) · [CI](https://github.com/eclipse-vlr/pc-club-admin/actions/workflows/ci.yml)
 
 ### [SupportFlow](https://github.com/eclipse-vlr/SupportFlow)
