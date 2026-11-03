@@ -1,76 +1,46 @@
-# Привет! Я eclipse 👋
+# Станислав · Junior Go Backend Developer
 
-Изучаю Go и развиваюсь в backend-разработке. Мне нравится разбираться, как устроены сервисы внутри: работа с базами данных, обработка ошибок, тестирование и поведение системы при сбоях.
+Разрабатываю учебные backend-сервисы на Go: HTTP API, хранение данных в PostgreSQL, фоновые задачи и проверки поведения при сбоях. Ищу удалённую или гибридную работу; мой часовой пояс — UTC+3.
 
-Сейчас собираю портфолио из проектов, в которых можно попробовать всё это на практике. Кроме Go, пишу на C++ и интересуюсь разработкой под Windows.
+**Telegram:** [@eclipsevlr](https://t.me/eclipsevlr)
 
 ## С чем работаю
 
-- **Языки:** Go, C++, TypeScript, JavaScript
-- **Backend:** REST API, `net/http`, SQL, pgx
-- **Frontend:** React, Vite
-- **LLM:** Yandex AI Studio, Responses API, JSON Schema, RAG, embeddings
-- **Базы данных и кеш:** PostgreSQL, pgvector, Redis
-- **Разработка под Windows:** Win32 API, GDI, WIC
-- **Инструменты:** Docker, Docker Compose, Git, GitHub Actions, CMake, MSVC
-- **Тестирование:** Go `testing` и `httptest`, интеграционные тесты, проверка гонок, Playwright, CTest, ASan/UBSan
+Go, HTTP/REST, PostgreSQL, SQL, Docker и GitHub Actions — в проектах ниже.
+Тестирование: модульные и интеграционные тесты, `go test -race`.
+Redis и pgx использую в LinkForge; React/TypeScript — в PC Club Admin,
+LLM-инструменты — в SupportFlow и DocMind. C++/Win32 — дополнительное направление в TriggerLab.
 
-## Мои проекты
+## Основные проекты
 
-### 🔗 [LinkForge](https://github.com/eclipse-vlr/linkforge)
+### [LinkForge](https://github.com/eclipse-vlr/linkforge)
 
-Сервис сокращения ссылок на Go. Создаёт короткие ссылки, перенаправляет по ним и считает переходы. В проекте использую PostgreSQL, кеш Redis, SQL-миграции, ограничение запросов и защиту создания ссылок через API-ключ. Логику ссылок, HTTP и работу с хранилищами разделил на пакеты.
+Сервис сокращения ссылок на Go: создание URL, переходы и статистика в PostgreSQL.
+Redis кеширует URL; при его отказе сервис обращается к БД с отдельным контекстом и продолжает работать.
+Есть интеграционные проверки с PostgreSQL/Redis, CI и готовые сборки.
+[API](https://github.com/eclipse-vlr/linkforge/blob/master/docs/api.md) · [CI](https://github.com/eclipse-vlr/linkforge/actions/workflows/go.yml) · [Релиз](https://github.com/eclipse-vlr/linkforge/releases/tag/v0.1.2)
 
-Проверяю работу с настоящими PostgreSQL и Redis, отказ кеша и корректную остановку сервера. В CI есть тесты с проверкой гонок, поиск уязвимостей зависимостей и проверка Docker-образа. Через GitHub Actions готовлю сборки для Linux, Windows и macOS.
+### [PC Club Admin](https://github.com/eclipse-vlr/pc-club-admin)
 
-[Документация API](https://github.com/eclipse-vlr/linkforge/blob/master/docs/api.md) · [Сборка и тесты](https://github.com/eclipse-vlr/linkforge/actions/workflows/go.yml) · [Релиз v0.1.2](https://github.com/eclipse-vlr/linkforge/releases/tag/v0.1.2)
+Передача смен между сотрудниками компьютерного клуба: роли, чек-листы, замечания, тестовая сверка кассы и журнал действий.
+Приём проверяет версию передачи, пересчёт и личный PIN; ответственность меняется в транзакции PostgreSQL.
+Есть локальная демонстрация на вымышленных данных; реальный денежный учёт требует проверки правил и пилота.
+[Видео · 1:27](https://github.com/eclipse-vlr/pc-club-admin/blob/main/assets/demo/walkthrough.webm) · [Сценарий и скриншоты](https://github.com/eclipse-vlr/pc-club-admin/blob/main/docs/demo.md) · [CI](https://github.com/eclipse-vlr/pc-club-admin/actions/workflows/ci.yml)
 
-### 📨 [SupportFlow](https://github.com/eclipse-vlr/SupportFlow)
+### [SupportFlow](https://github.com/eclipse-vlr/SupportFlow)
 
-Локальное приложение на Go для обработки обращений в поддержку. Алиса AI определяет категорию и приоритет обращения, готовит краткое описание и черновик ответа. Оператор может поправить текст, подтвердить его и скопировать для отправки клиенту. Есть поиск обращений, оценка черновиков и закрытие решённых вопросов.
+Приложение для поддержки: категория обращения, подбор статьи и черновик ответа с проверкой оператором.
+Очередь хранится в PostgreSQL; есть повторы и защита от перезаписи из старой вкладки.
+Запуск по умолчанию — деморежим без платного API; интерфейс и результаты небольшой синтетической проверки модели доступны в репозитории.
+[Запуск и превью](https://github.com/eclipse-vlr/SupportFlow#запуск) · [Оценка модели и ограничения](https://github.com/eclipse-vlr/SupportFlow/blob/master/docs/evaluation.md) · [CI](https://github.com/eclipse-vlr/SupportFlow/actions/workflows/ci.yml)
 
-Вызываю модель через Responses API Yandex AI Studio, а формат ответа задаю с помощью JSON Schema. Для ответа приложение подбирает статьи из локальной базы знаний. Если проверка находит в черновике ошибки, например служебные пометки или незаполненные шаблоны, модель один раз переписывает его.
+## Дополнительные проекты
 
-Очередь хранится в PostgreSQL: есть фоновые обработчики, повторные попытки, история правок и защита от перезаписи из старой вкладки. Запускаю тесты с реальной базой PostgreSQL и проверкой гонок (`-race`). Результаты отдельной проверки модели сохраняю в JSON-отчётах.
-
-[Как запустить](https://github.com/eclipse-vlr/SupportFlow#запуск) · [Проверка модели](https://github.com/eclipse-vlr/SupportFlow/blob/master/docs/evaluation.md)
-
-### 🖥️ [PC Club Admin](https://github.com/eclipse-vlr/pc-club-admin)
-
-Система для сотрудников компьютерного клуба. Помогает принимать и сдавать смены, проходить чек-листы, сверять кассу и сохранять историю действий. Проект вырос из реальных рабочих задач. Пока это тестовая версия, не готовая для настоящего учёта денег.
-
-Backend написан на Go с PostgreSQL, интерфейс — на React и TypeScript. Есть роли сотрудников, CSV-выгрузки и заполнение Excel на Google Drive, проверенное на тестовой копии. В CI проверяю работу с БД, браузерные сценарии и восстановление резервной копии.
-
-[Демонстрация](https://github.com/eclipse-vlr/pc-club-admin/blob/main/docs/demo.md) · [Сборка и тесты](https://github.com/eclipse-vlr/pc-club-admin/actions/workflows/ci.yml)
-
-### 📄 [DocMind](https://github.com/eclipse-vlr/docmind)
-
-Backend на Go для вопросов по документам. Загружает TXT, Markdown и PDF, извлекает текст в отдельном процессе, разбивает его на фрагменты и ищет подходящий контекст через embeddings и pgvector. Вместе с ответом возвращаются фрагменты документов и номера страниц PDF. Сервер проверяет, что модель ссылается на найденные фрагменты.
-
-Реализованы адаптеры Alice AI и embeddings Yandex AI Studio, локальный режим без внешних API, повторная индексация и восстановление обработки после сбоя. Проверяю транзакции, конкурентную обработку и источники ответов с настоящей БД PostgreSQL; API провайдера подменяется в тестах. Пока это локальный MVP без авторизации и OCR.
-
-[Запуск и API](https://github.com/eclipse-vlr/docmind#запуск)
-
-### 📋 [TaskFlow](https://github.com/eclipse-vlr/taskflow)
-
-Учебный сервис фоновых задач на Go и PostgreSQL. HTTP API сохраняет задачи, ограниченный пул воркеров выполняет `sleep`, а планировщик назначает повторы и восстанавливает прерванные задачи после сбоев. Есть ручной повтор неудавшихся задач и отмена ожидающих; устаревшая попытка не может перезаписать результат новой.
-
-В CI запускаю интеграционные тесты с PostgreSQL и проверкой гонок на Go 1.26 и 1.27. После сбоя задача может выполниться повторно. Авторизации и отмены уже запущенных задач пока нет.
-
-[Сборка и тесты](https://github.com/eclipse-vlr/taskflow/actions/workflows/ci.yml)
-
-### 🎯 [TriggerLab](https://github.com/eclipse-vlr/TriggerLab)
-
-Приложение на C++20 для тренировок в Kovaak’s и Aimlabs под Windows. Находит выбранный цвет возле прицела и выполняет клик. Ядро анализа отделено от Windows-интерфейса; сборка и тесты запускаются в GitHub Actions. Есть RGB/HSV, профили, проверка свежести кадров и восстановление повреждённых настроек. Переносимое ядро проверяю на Linux с ASan/UBSan, Windows-сборку — нативными тестами и проверкой готового ZIP.
-
-[Релиз v0.4.5](https://github.com/eclipse-vlr/TriggerLab/releases/tag/v0.4.5) · [Сборка и тесты](https://github.com/eclipse-vlr/TriggerLab/actions/workflows/ci.yml)
+- [TaskFlow](https://github.com/eclipse-vlr/taskflow) — учебная очередь на Go/PostgreSQL: lease, токен попытки, повторы и восстановление небольшими партиями. Обработчик `sleep`; выполнение может повторяться, отмена доступна только до начала работы.
+- [DocMind](https://github.com/eclipse-vlr/docmind) — вопросы по TXT, Markdown и PDF, pgvector и проверка источников. Есть локальный режим без внешней модели; авторизации и OCR нет.
+- [TriggerLab](https://github.com/eclipse-vlr/TriggerLab) — C++20/Win32: распознавание цвета для тренировок, захват свежих кадров и управление вводом. [Готовая Windows-сборка](https://github.com/eclipse-vlr/TriggerLab/releases/tag/v0.4.5).
+- [Алгоритмы на Go](https://github.com/eclipse-vlr/leetcode-go) — дополнительная учебная практика.
 
 ## Что изучаю сейчас
 
-Конкурентность в Go, архитектуру backend-сервисов, SQL и алгоритмы. Стараюсь закреплять теорию кодом, а не только читать о ней.
-
-## Связаться со мной
-
-Рассматриваю предложения на позицию **Junior Go Backend Developer**.
-
-**Telegram:** [@eclipsevlr](https://t.me/eclipsevlr)
+Конкурентность в Go и SQL; закрепляю их в очередях задач и интеграционных тестах.
