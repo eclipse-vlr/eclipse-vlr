@@ -18,7 +18,7 @@ LLM-инструменты — в SupportFlow и DocMind. C++/Win32 — допо
 Сервис сокращения ссылок на Go: создание URL, переходы и статистика в PostgreSQL.
 Redis кеширует URL; при его отказе сервис обращается к БД с отдельным контекстом и продолжает работать.
 Есть интеграционные проверки с PostgreSQL/Redis, CI и готовые сборки.
-[API](https://github.com/eclipse-vlr/linkforge/blob/master/docs/api.md) · [CI](https://github.com/eclipse-vlr/linkforge/actions/workflows/go.yml) · [Релиз](https://github.com/eclipse-vlr/linkforge/releases/tag/v0.1.2)
+[API](https://github.com/eclipse-vlr/linkforge/blob/master/docs/api.md) · [CI](https://github.com/eclipse-vlr/linkforge/actions/workflows/go.yml) · [Релиз](https://github.com/eclipse-vlr/linkforge/releases/latest)
 
 ### [PC Club Admin](https://github.com/eclipse-vlr/pc-club-admin)
 
