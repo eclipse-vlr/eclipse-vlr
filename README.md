@@ -15,8 +15,8 @@ LLM-инструменты — в SupportFlow и DocMind. C++/Win32 — допо
 
 ### [LinkForge](https://github.com/eclipse-vlr/linkforge)
 
-Сервис сокращения ссылок на Go: создание URL, переходы и статистика в PostgreSQL.
-Redis кеширует URL; при его отказе сервис обращается к БД с отдельным контекстом и продолжает работать.
+Сервис на Go создаёт короткие ссылки, перенаправляет по ним и хранит счётчики переходов в PostgreSQL.
+Redis кеширует исходные URL. При сбое кеша сервис читает их из PostgreSQL.
 Есть интеграционные проверки с PostgreSQL/Redis, CI и готовые сборки.
 [API](https://github.com/eclipse-vlr/linkforge/blob/master/docs/api.md) · [CI](https://github.com/eclipse-vlr/linkforge/actions/workflows/go.yml) · [Релиз](https://github.com/eclipse-vlr/linkforge/releases/latest)
 
